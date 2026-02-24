@@ -1,4 +1,4 @@
-﻿# \## Lab 1
+﻿# \## Lab 2
 
 # 
 
@@ -84,6 +84,7 @@ Pasirinkimas: (jei 1, tai galima prideti dar studentu, jei 2 - parodomi visi gru
 
 
 # 
+
 
 
 
