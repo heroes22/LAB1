@@ -1,53 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Student
+public class Student // issaugo studento varda ir pavarde (laikinai)
 {
     private string Vardas;
     private string Pavarde;
 
-    public Student(string vardas, string pavarde)
+    public Student(string vardas, string pavarde) 
     {
         Vardas = vardas;
         Pavarde = pavarde;
     }
 
-    public string GetFullName()
+    public string GetFullName() 
     {
-        return Vardas + " " + Pavarde;
+        return Vardas + " " + Pavarde; // atspausdina studento varda ir pavarde
     }
 }
 
-public class Group
+public class Group // studento pridejimas
 {
     private List<Student> students = new List<Student>();
 
     public void Add(Student s)
     {
-        students.Add(s);
+        students.Add(s); // prideda studenta
     }
 
-    public bool IsEmpty()
+    public bool IsEmpty() // patikrina ar grupe tuscia ir studentu joje nera
     {
         return students.Count == 0;
     }
 
     public List<Student> GetStudents()
     {
-        return students;
+        return students; // atspausdina visus studentus (jei netuscia grupe)
     }
 }
 
-public class Menu
+public class Menu 
 {
-    private Group group;
+    private Group group; // studentu grupe
 
     public Menu(Group group)
     {
         this.group = group;
     }
 
-    public void Run()
+    public void Run() // kol nera ivedamas 0, tol programa veikia
     {
         string choice = "";
 
@@ -59,7 +59,7 @@ public class Menu
         }
     }
 
-    private void PrintMenu()
+    private void PrintMenu() // meniu pasirinkimai
     {
         Console.WriteLine("1 - Add");
         Console.WriteLine("2 - Show");
@@ -67,44 +67,44 @@ public class Menu
         Console.Write("Pasirinkimas: ");
     }
 
-    private void HandleChoice(string choice)
+    private void HandleChoice(string choice) // pasirinkimu metodas
     {
         if (choice == "1")
         {
-            AddStudent();
+            AddStudent(); // studento pridejimas
         }
         else if (choice == "2")
         {
-            ShowStudents();
+            ShowStudents(); // studento(-u) rodymas
         }
     }
 
-    private void AddStudent()
+    private void AddStudent() // studento pridejimo metodas
     {
         Console.WriteLine("-----------------------");
         Console.Write("Vardas: ");
-        string vardas = Console.ReadLine();
+        string vardas = Console.ReadLine(); // spausdinamas vardas
 
         Console.Write("Pavarde: ");
-        string pavarde = Console.ReadLine();
+        string pavarde = Console.ReadLine(); // spausdinama pavarde
         Console.WriteLine("-----------------------");
 
         group.Add(new Student(vardas, pavarde));
     }
 
-    private void ShowStudents()
+    private void ShowStudents() // studento rodymo metodas
     {
         Console.WriteLine("-----------------------");
 
         if (group.IsEmpty())
         {
-            Console.WriteLine("Grupe tuscia.");
+            Console.WriteLine("Grupe tuscia."); // spausdinama jei grupe tuscia
         }
         else
         {
-            foreach (var s in group.GetStudents())
+            foreach (var s in group.GetStudents()) 
             {
-                Console.WriteLine(s.GetFullName());
+                Console.WriteLine(s.GetFullName()); // paima visus ivestus studentus ir atspausdina
             }
         }
 
@@ -114,10 +114,10 @@ public class Menu
 
 public class Program
 {
-    public static void Main()
+    public static void Main() // main metodas 
     {
-        Group group = new Group();
-        Menu menu = new Menu(group);
+        Group group = new Group(); // studentu grupe
+        Menu menu = new Menu(group); meniu, kuriame yra  studentu grupe
 
         menu.Run();
     }
